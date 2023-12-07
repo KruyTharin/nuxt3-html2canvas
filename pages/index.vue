@@ -5,12 +5,12 @@ import QrcodeVue from "qrcode.vue";
 const printContent = ref<HTMLElement | null>(null);
 const isLoading = ref(false);
 
-const image = "image_url";
+const image = "<image_url>";
 
 // Problem: after screenshot got white space even image display normally
 // This is useful when working with image with different origin
 // Ex: singUrl from aws s3 etc...
-async function downloadIMage() {
+async function downloadImage() {
   const options = {
     allowTaint: true,
     useCORS: true, // to enable cross origin perms
@@ -97,7 +97,7 @@ async function downloadIMage() {
           <button
             class="mt-4 w-full md:w-fit"
             :loading="isLoading"
-            @click="downloadIMage"
+            @click="downloadImage"
           >
             Save as image
           </button>
